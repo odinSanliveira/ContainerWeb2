@@ -15,16 +15,9 @@ class multiplication(generics.GenericAPIView):
         if num1.isdigit() and num2.isdigit():
             a = int(num1)
             b = int(num2)
+            answer = a*b
+            return Response(answer, status=status.HTTP_200_OK)
 
-            if b == 0:
-                answer = "Cannot divide by 0"
-                return Response(answer, status=status.HTTP_400_BAD_REQUEST)
-            else:
-                answer = a*b
-                return Response(answer, status=status.HTTP_200_OK)
         else:
             answer = "Need to be numbers"
             return Response(answer, status=status.HTTP_400_BAD_REQUEST)
-
-
-
